@@ -17,10 +17,10 @@ sub ReadData(filename as String)
   if lof(1) > 0 then
    ff4rom = String(lof(1), 0)
    get #1, , ff4rom
-   if lof(1) = 1048576 then 'it must be unheadered
+   if lof(1) = 2097152 then 'it must be unheadered
     ff4rom = String(&h200, 0) + ff4rom 'give it a dummy header
     unheadered = true
-   elseif lof(1) <> 1049088 then 'it isn't FF4
+   elseif lof(1) <> 2098176 then 'it isn't FF4
     print "FILE SIZE ERROR"
     getkey
     end
